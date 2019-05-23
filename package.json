@@ -1,0 +1,19 @@
+{
+  "name": "video-messages-client",
+  "version": "1.0.0",
+  "repository": "git@github.com:trofivan/video-messages-client.git",
+  "author": "Ivan Trofimov <ivan@trofimov.link>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "parcel": "^1.12.3",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  },
+  "scripts": {
+    "start": "parcel src/index.html --log-level=4 --https",
+    "build": "parcel build",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint:fix": "tslint --fix -c tslint.json 'src/**/*.ts'"
+  }
+}
