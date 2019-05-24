@@ -1,9 +1,13 @@
 import { VideoPlayer } from './videoPlayer';
 
-const videoPlayer = new VideoPlayer(document.querySelector('canvas.player'));
+const videoPlayer = new VideoPlayer(document.querySelector('canvas'));
 
 const button = document.querySelector('#send-message');
+// @ts-ignore
 button.addEventListener('click', () => {
-  videoPlayer.pauseStreaming();
-  setTimeout(() => videoPlayer.startStreaming(), 1000);
+  videoPlayer.sendMessage(
+    'Structure and Interpretation of Computer Programs',
+    'Structure and Interpretation of Computer Programs is a computer science textbook by ' +
+    'Massachusetts Institute of Technology.',
+  );
 });
