@@ -10,7 +10,12 @@ interface IHashMap {
   [key: number]: string;
 }
 
-export class VideoPlayer {
+interface IVideoPlayer {
+  canvasContainer: HTMLCanvasElement;
+  videoContainerrs: HTMLVideoElement;
+}
+
+export class VideoPlayer implements IVideoPlayer {
   private readonly canvasContainer: HTMLCanvasElement;
   private readonly videoContainer: HTMLVideoElement;
   private canvasContext: CanvasRenderingContext2D;
