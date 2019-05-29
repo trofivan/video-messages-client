@@ -1,5 +1,7 @@
 import { MESSAGE } from './constants';
 
+const { MINIMAL_TIMEOUT } = MESSAGE;
+
 interface IMessage {
   title: string;
   text: string;
@@ -38,7 +40,7 @@ export class VideoPlayer implements IVideoPlayer {
     this.message = {
       title: 'Canvas video',
       text: 'Streaming is started',
-      timestamp: performance.now() + 2000,
+      timestamp: performance.now() + MINIMAL_TIMEOUT,
     };
   }
 
@@ -60,8 +62,10 @@ export class VideoPlayer implements IVideoPlayer {
     };
   }
 
-  private calculateMessageTimeout = (title: string, text: string): number =>
-    [...title.split(' '), ...text.split(' ')].length * 1000 / 2
+  private calculateMessageTimeout = (title: string, text: string): number => {
+    const time = [...title.split(' '), ...text.split(' ')].length * 1000 / 2;
+    return time > MINIMAL_TIMEOUT ? time : MINIMAL_TIMEOUT;
+  }
 
   private getCanvasImagePosition(): [number, number, number, number] {
     const {width: canvasWidth, height: canvasHeight} = this.canvasContainer;

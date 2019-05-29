@@ -1,5 +1,5 @@
 export const MESSAGE = {
-  TIMEOUT: 5000,
+  MINIMAL_TIMEOUT: 5000,
   TITLE: {
     FONT_WEIGHT: 'bold',
     FONT_SIZE: 28,
